@@ -34,7 +34,6 @@
             text-align: center;
             border-right: 1px solid #ddd;
             background-color: #f9f9f9;
-            margin-right: 20px;
         }
 
         .review:last-child {
@@ -219,38 +218,14 @@
         <div class="review">
             <h4>Aman Mehta</h4>
             <p>Gujarat</p>
-            <blockquote>"My child is so excited to speak in public now! The program helped boost his confidence and skill." </blockquote>
+            <blockquote>"My child is so excited to speak in front of an audience now. This program has really helped him develop the skills he needed!"</blockquote>
             <div class="rating">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
         </div>
 
-        <div class="review">
-            <h4>Shalini Verma</h4>
-            <p>Kerala</p>
-            <blockquote>"A perfect place for children to develop speaking and presentation skills. I’ve seen a huge difference in my child’s confidence!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
+        <!-- Add remaining reviews here -->
 
-        <div class="review">
-            <h4>Ankit Sharma</h4>
-            <p>Jammu & Kashmir</p>
-            <blockquote>"My son has developed excellent speaking skills. This program is a must for anyone who wants to improve their communication." </blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <div class="review">
-            <h4>Divya Yadav</h4>
-            <p>Madhya Pradesh</p>
-            <blockquote>"My daughter now confidently speaks in front of an audience. This has been the best decision for her growth!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
     </div>
 
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -265,12 +240,12 @@
     function moveSlide(step) {
         currentIndex += step;
         if (currentIndex < 0) {
-            currentIndex = totalReviews - 1;
+            currentIndex = totalReviews - 3;  // Adjusted for 3 visible blocks
         } else if (currentIndex >= totalReviews) {
             currentIndex = 0;
         }
 
-        const slideWidth = reviews[0].offsetWidth;
+        const slideWidth = reviews[0].offsetWidth * 3; // 3 blocks visible
         const offset = -currentIndex * slideWidth;
         document.querySelector('.slider').style.transform = `translateX(${offset}px)`;
     }

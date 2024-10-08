@@ -3,209 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reviews</title>
+    <title>Customer Voices</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f7f8;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
         }
 
-        .review-section {
+        .customer-voices {
+            text-align: center;
+            background-color: #e0f7fa;
+            padding: 40px;
             position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
             overflow: hidden;
-            background-color: #fff;
-            border-radius: 10px;
+        }
+
+        .customer-voices h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .customer-voices h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
         .slider {
             display: flex;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease-in-out;
+            width: 300%;
         }
 
         .review {
-            width: 33.3333%; /* To display 3 reviews in one frame */
+            background-color: white;
             padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-            border-right: 1px solid #ddd;
-            background-color: #f9f9f9;
-            margin-right: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin: 0 15px;
+            text-align: left;
+            flex: 0 0 33.3333%;
         }
 
-        .review:last-child {
-            border-right: none;
+        .review h4, .review p {
+            text-align: center; /* Center the name and location */
         }
 
         .review h4 {
-            font-size: 1.2rem;
-            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         .review p {
-            font-size: 1rem;
-            color: #777;
-            margin: 10px 0;
+            font-size: 14px;
+            color: grey;
+            margin-bottom: 15px;
         }
 
-        .review blockquote {
+        blockquote {
             font-style: italic;
-            color: #555;
-            margin: 20px 0;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            text-align: center; /* Center the stars */
         }
 
         .rating span {
             color: gold;
-            font-size: 1.2rem;
+            font-size: 24px;
         }
 
-        .prev, .next {
+        /* Arrow Buttons */
+        button.prev, button.next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 10px;
+            background-color: rgba(0,0,0,0.5);
             border: none;
+            padding: 10px;
+            color: white;
             cursor: pointer;
-            z-index: 10;
+            font-size: 18px;
+            border-radius: 50%;
         }
 
-        .prev {
+        button.prev {
             left: 10px;
         }
 
-        .next {
+        button.next {
             right: 10px;
         }
 
-        /* Make sure the review section is responsive */
-        @media (max-width: 768px) {
-            .review {
-                width: 100%;
-            }
+        button.prev:hover, button.next:hover {
+            background-color: rgba(0,0,0,0.8);
         }
 
+        @media screen and (max-width: 768px) {
+            .slider {
+                width: 300%;
+            }
+
+            .review {
+                flex: 0 0 100%;
+            }
+        }
     </style>
 </head>
 <body>
 
-<section class="review-section">
-    <div class="slider">
-        <!-- Block 1 -->
-        <div class="review">
-            <h4>Meera Shah</h4>
-            <p>Mumbai</p>
-            <blockquote>"My son’s confidence has grown significantly after joining the public speaking program. The teachers are amazing!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+<section class="customer-voices">
+    <h2>Success Stories</h2>
+    <h3>Customer Voices</h3>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="review">
+                <h4>Rupinder Singh</h4>
+                <p>Haryana</p>
+                <blockquote>
+                    <p>"What I liked most is how well-planned the classes are. They are not only teaching theory but making the kids practice in such a fun way. My daughter loves the activities and already I can see confidence improving in few weeks."</p>
+                </blockquote>
+                <div class="rating">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+
+            <div class="review">
+                <h4>Lalita Joshi</h4>
+                <p>Rajasthan</p>
+                <blockquote>
+                    <p>"I enrolled my son in many classes before, but this is first time he is genuinely excited to attend. The games they use to teach are really smart. He is learning without even realising it, he thinks he is just having fun!"</p>
+                </blockquote>
+                <div class="rating">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+            </div>
+
+            <div class="review">
+                <h4>Ayesha Khan</h4>
+                <p>Maharashtra</p>
+                <blockquote>
+                    <p>"What I find different is the team’s approach. They don’t just focus on improving speaking, but also building confidence and expression. My daughter loves the personal attention in her one-on-one sessions. It’s her favourite time of the week."</p>
+                </blockquote>
+                <div class="rating">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
             </div>
         </div>
 
-        <!-- Block 2 -->
-        <div class="review">
-            <h4>Sandeep Agarwal</h4>
-            <p>Delhi</p>
-            <blockquote>"A great learning experience! My daughter’s presentation skills have improved dramatically after attending these sessions."</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 3 -->
-        <div class="review">
-            <h4>Priya Rani</h4>
-            <p>Punjab</p>
-            <blockquote>"This program is exactly what my child needed! I’ve noticed significant improvement in her communication skills after just a few sessions!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 4 -->
-        <div class="review">
-            <h4>Ravi Kumar</h4>
-            <p>Delhi</p>
-            <blockquote>"A very interactive way of learning! My daughter is enjoying every session and her vocabulary has grown rapidly!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 5 -->
-        <div class="review">
-            <h4>Geeta Kapoor</h4>
-            <p>Uttarakhand</p>
-            <blockquote>"The interactive lessons and activities keep my son engaged and help him learn new things every time. The staff is very supportive and approachable!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 6 -->
-        <div class="review">
-            <h4>Meenakshi Sethi</h4>
-            <p>Himachal Pradesh</p>
-            <blockquote>"After joining these classes, my son has become much more articulate. He enjoys each session and looks forward to the activities!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 7 -->
-        <div class="review">
-            <h4>Vikas Singh</h4>
-            <p>Rajasthan</p>
-            <blockquote>"I’m amazed at how quickly my daughter has gained confidence in speaking and presenting. The instructors are amazing!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 8 -->
-        <div class="review">
-            <h4>Rahul Verma</h4>
-            <p>Madhya Pradesh</p>
-            <blockquote>"I highly recommend this program for anyone looking to enhance their children’s communication and speaking skills. They are doing wonders!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Block 9 -->
-        <div class="review">
-            <h4>Sonali Gupta</h4>
-            <p>Uttar Pradesh</p>
-            <blockquote>"The sessions are structured to make learning fun, and my child looks forward to every class. It has helped her develop excellent speaking skills!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
-
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
 </section>
 
 <script>
     let slideIndex = 0;
 
-    function moveSlide(step) {
+    function moveSlide(direction) {
         const slider = document.querySelector('.slider');
         const totalSlides = document.querySelectorAll('.review').length;
-        slideIndex = (slideIndex + step + totalSlides) % totalSlides;
-        slider.style.transform = `translateX(-${slideIndex * 33.3333}%)`;
+
+        slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+        const slideWidth = slider.querySelector('.review').offsetWidth + 30; // Adjust margin
+
+        slider.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
     }
 
-    // Auto slide every 3 seconds
+    // Auto-slide functionality
     setInterval(() => {
         moveSlide(1);
-    }, 3000);
+    }, 3000); // Slide every 3 seconds
 </script>
 
 </body>

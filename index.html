@@ -34,6 +34,7 @@
             text-align: center;
             border-right: 1px solid #ddd;
             background-color: #f9f9f9;
+            margin-right: 20px;
         }
 
         .review:last-child {
@@ -96,7 +97,7 @@
 
 <section class="review-section">
     <div class="slider">
-        <!-- Add all 20 review blocks -->
+        <!-- Block 1 -->
         <div class="review">
             <h4>Meera Shah</h4>
             <p>Mumbai</p>
@@ -106,6 +107,7 @@
             </div>
         </div>
 
+        <!-- Block 2 -->
         <div class="review">
             <h4>Sandeep Agarwal</h4>
             <p>Delhi</p>
@@ -115,6 +117,7 @@
             </div>
         </div>
 
+        <!-- Block 3 -->
         <div class="review">
             <h4>Priya Rani</h4>
             <p>Punjab</p>
@@ -124,6 +127,7 @@
             </div>
         </div>
 
+        <!-- Block 4 -->
         <div class="review">
             <h4>Ravi Kumar</h4>
             <p>Delhi</p>
@@ -133,6 +137,7 @@
             </div>
         </div>
 
+        <!-- Block 5 -->
         <div class="review">
             <h4>Geeta Kapoor</h4>
             <p>Uttarakhand</p>
@@ -142,6 +147,7 @@
             </div>
         </div>
 
+        <!-- Block 6 -->
         <div class="review">
             <h4>Meenakshi Sethi</h4>
             <p>Himachal Pradesh</p>
@@ -151,6 +157,7 @@
             </div>
         </div>
 
+        <!-- Block 7 -->
         <div class="review">
             <h4>Vikas Singh</h4>
             <p>Rajasthan</p>
@@ -160,6 +167,7 @@
             </div>
         </div>
 
+        <!-- Block 8 -->
         <div class="review">
             <h4>Rahul Verma</h4>
             <p>Madhya Pradesh</p>
@@ -169,6 +177,7 @@
             </div>
         </div>
 
+        <!-- Block 9 -->
         <div class="review">
             <h4>Sonali Gupta</h4>
             <p>Uttar Pradesh</p>
@@ -177,55 +186,6 @@
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
         </div>
-
-        <!-- Adding more reviews up to 20 -->
-        <div class="review">
-            <h4>Neelam Yadav</h4>
-            <p>Bihar</p>
-            <blockquote>"The teachers are very patient and supportive, and my daughter’s presentation skills have improved remarkably!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <div class="review">
-            <h4>Shivendra Singh</h4>
-            <p>Uttarakhand</p>
-            <blockquote>"A great experience for my son! The environment is very friendly, and he has learned so much about public speaking."</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <div class="review">
-            <h4>Ritika Shah</h4>
-            <p>Chandigarh</p>
-            <blockquote>"My daughter enjoys her classes here and the improvement in her speaking skills has been noticeable. I highly recommend it!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <div class="review">
-            <h4>Sneha Pandey</h4>
-            <p>Rajasthan</p>
-            <blockquote>"The content and structure of the program are top-notch. My son has grown in confidence and enjoys learning!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <div class="review">
-            <h4>Aman Mehta</h4>
-            <p>Gujarat</p>
-            <blockquote>"My child is so excited to speak in front of an audience now. This program has really helped him develop the skills he needed!"</blockquote>
-            <div class="rating">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-        </div>
-
-        <!-- Add remaining reviews here -->
-
     </div>
 
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -233,22 +193,19 @@
 </section>
 
 <script>
-    let currentIndex = 0;
-    const reviews = document.querySelectorAll('.review');
-    const totalReviews = reviews.length;
+    let slideIndex = 0;
 
     function moveSlide(step) {
-        currentIndex += step;
-        if (currentIndex < 0) {
-            currentIndex = totalReviews - 3;  // Adjusted for 3 visible blocks
-        } else if (currentIndex >= totalReviews) {
-            currentIndex = 0;
-        }
-
-        const slideWidth = reviews[0].offsetWidth * 3; // 3 blocks visible
-        const offset = -currentIndex * slideWidth;
-        document.querySelector('.slider').style.transform = `translateX(${offset}px)`;
+        const slider = document.querySelector('.slider');
+        const totalSlides = document.querySelectorAll('.review').length;
+        slideIndex = (slideIndex + step + totalSlides) % totalSlides;
+        slider.style.transform = `translateX(-${slideIndex * 33.3333}%)`;
     }
+
+    // Auto slide every 3 seconds
+    setInterval(() => {
+        moveSlide(1);
+    }, 3000);
 </script>
 
 </body>
